@@ -11,7 +11,7 @@ import streamlit as st
 
 ### ------- Get the Call and Put Option from yfinance --------
 
-@st.cache_data(ttl=300)   # cache for 5 minutes, adjust as needed
+@st.cache_data(ttl=300)   # cache for 5 minutes
 def get_option_data(ticker_symbol, option_type='call'):
     """
     Returns call or put options data for the ticker.
@@ -59,7 +59,7 @@ def get_option_data(ticker_symbol, option_type='call'):
     
 ### ---- Get the spot price ----
 
-@st.cache_data(ttl=300)   # cache for 5 minutes, adjust as needed
+@st.cache_data(ttl=300)   # cache for 5 minutes
 def get_spot_price(symbol):
     try:
         hist = yf.Ticker(symbol).history(period='1d')
@@ -342,5 +342,5 @@ if plot_btn:
                                                 spot_line=show_spot_line, strike_limits=strike_window)
                 st.plotly_chart(fig_both, use_container_width=True)
 
-st.write("---")
-st.markdown("Created by Tanmoy Ghosh ")
+#st.write("---")
+#st.markdown("Created by Tanmoy Ghosh ")
